@@ -1,0 +1,1 @@
+NimbleCSV.define(CSV, separator: "|")

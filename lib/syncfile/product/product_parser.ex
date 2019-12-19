@@ -1,6 +1,4 @@
-NimbleCSV.define(CSV, separator: "|")
-
-defmodule GroupCollect.Report.ProductParser do
+defmodule Syncfile.Product.ProductParser do
   @moduledoc """
   Parse the Product CSV containing:
 
@@ -16,7 +14,6 @@ defmodule GroupCollect.Report.ProductParser do
     "tmp/data.csv"
     |> File.read!()
     |> process_csv()
-    |> to_map
   end
 
   @doc """
@@ -41,10 +38,13 @@ defmodule GroupCollect.Report.ProductParser do
     csv_string
     |> CSV.parse_string(skip_headers: false)
     |> to_map
+    |> Enum.filter(fn x -> x["part_number"] != "" end)
   end
 
   defp to_map(parsed_csv) do
     [header | body] = parsed_csv
+    header = header |> Enum.map(&String.downcase(&1))
+
     body |> Enum.map(fn row -> Enum.zip(header, row) |> Enum.into(%{}) end)
   end
 end
