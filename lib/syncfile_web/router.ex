@@ -16,11 +16,7 @@ defmodule SyncfileWeb.Router do
   scope "/", SyncfileWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PageController, :new
+    put "/", PageController, :update
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", SyncfileWeb do
-  #   pipe_through :api
-  # end
 end
