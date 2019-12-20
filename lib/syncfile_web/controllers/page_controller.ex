@@ -17,8 +17,15 @@ defmodule SyncfileWeb.PageController do
     render(conn, "new.html")
   end
 
-  def update(conn, %{"update" => %{"csv_file" => csv_file}}) do
-    Product.sync_file(csv_file.path)
+  def update(conn, %{"update" => %{"csv_file" => csv_file}} = params) do
+    products_data = Product.load_csv(csv_file.path)
+    delete_missing = get_in(params, ["update", "delete_missing"]) == "true"
+
+    if delete_missing do
+      Product.delete_missing(products_data)
+    end
+
+    Product.sync(products_data)
 
     redirect(conn, to: Routes.page_path(conn, :index))
   end

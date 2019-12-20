@@ -6,18 +6,19 @@ defmodule Syncfile.Product do
 
   import Ecto.Query
 
-  def sync_file() do
-    products_data = ProductParser.load_csv()
-    sync(products_data)
-  end
-
-  def sync_file(path) do
-    products_data = ProductParser.load_csv(path)
-    sync(products_data)
+  def load_csv(path) do
+    ProductParser.load_csv(path)
   end
 
   def sync(products_data) do
     products_data |> Enum.each(&insert_or_update_product/1)
+  end
+
+  def delete_missing(products_data) do
+    present_part_numbers = products_data |> Enum.map(& &1["part_number"])
+
+    from(p in ProductSchema, where: not (p.part_number in ^present_part_numbers))
+    |> Repo.delete_all()
   end
 
   def all do

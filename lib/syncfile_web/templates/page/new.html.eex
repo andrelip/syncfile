@@ -2,6 +2,9 @@
   <h1>Catalog uploader</h1>
   <%= form_for @conn, Routes.page_path(@conn, :update), [as: :update, multipart: true, method: :put], fn f -> %>
   <%= file_input f, :csv_file %>
+  <div>
+    <%= checkbox f, :delete_missing %> <span id="delete_missing">Delete items not present in CSV</span>
+  </div>
   <%= submit "Submit" %>
 <% end %>
 </section>

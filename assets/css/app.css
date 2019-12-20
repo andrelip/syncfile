@@ -10,3 +10,8 @@ header nav li {
   text-align: right;
   white-space: nowrap;
 }
+
+#delete_missing {
+  color: tomato;
+  font-size: 14px;
+}
