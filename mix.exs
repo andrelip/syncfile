@@ -52,7 +52,8 @@ defmodule Syncfile.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:nimble_csv, "~> 0.6"},
       {:excoveralls, "~> 0.10", only: :test},
-      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false}
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
+      {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}
     ]
   end
 
