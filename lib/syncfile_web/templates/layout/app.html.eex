@@ -12,7 +12,8 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="/results">Check results</a></li>
+            <li><a href="/">Upload</a></li>
+            <li><a href="/list">List</a></li>
           </ul>
         </nav>
       </section>

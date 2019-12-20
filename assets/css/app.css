@@ -1,3 +1,12 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+
+header nav li {
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+  display: inline-block;
+  text-align: right;
+  white-space: nowrap;
+}

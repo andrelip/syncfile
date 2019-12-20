@@ -10,8 +10,8 @@ defmodule Syncfile.Product.ProductParser do
   The CSV for the product uses `|` as the delimiter
   """
 
-  def load_csv() do
-    "tmp/data.csv"
+  def load_csv(path \\ "tmp/data.csv") do
+    path
     |> File.read!()
     |> process_csv()
   end

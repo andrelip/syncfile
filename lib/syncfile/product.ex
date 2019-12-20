@@ -4,14 +4,28 @@ defmodule Syncfile.Product do
 
   alias Syncfile.Repo
 
-  def sync() do
-    products_data = ProductParser.load_csv()
+  import Ecto.Query
 
+  def sync_file() do
+    products_data = ProductParser.load_csv()
+    sync(products_data)
+  end
+
+  def sync_file(path) do
+    products_data = ProductParser.load_csv(path)
     sync(products_data)
   end
 
   def sync(products_data) do
     products_data |> Enum.each(&insert_or_update_product/1)
+  end
+
+  def all do
+    from(p in ProductSchema, order_by: [asc: p.part_number]) |> Repo.all()
+  end
+
+  def get_by_part_number(part_number) do
+    Repo.get_by(ProductSchema, %{part_number: part_number})
   end
 
   defp insert_or_update_product(data) do

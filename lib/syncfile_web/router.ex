@@ -18,5 +18,7 @@ defmodule SyncfileWeb.Router do
 
     get "/", PageController, :new
     put "/", PageController, :update
+    get "/list", PageController, :index
+    get "/part_number/:part_number", PageController, :show
   end
 end

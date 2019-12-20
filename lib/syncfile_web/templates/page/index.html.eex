@@ -1,0 +1,14 @@
+<table>
+    <th>PART_NUMBER</th>
+    <th>BRANCH_ID</th>
+    <th>PART_PRICE (USD)</th>
+    <th>SHORT_DESC</th>
+    <%= for product <- @products do %>
+        <tr style="white-space: nowrap;">
+            <td><%= product.part_number %></td>
+            <td><%= product.branch_id %></td>
+            <td><%= Decimal.round(product.part_price, 2) %></td>
+            <td><%= product.short_desc %></td>
+        </tr>
+    <% end %>
+</table>
