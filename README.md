@@ -1,5 +1,6 @@
 # Syncfile
 
+[![CircleCI](https://circleci.com/gh/andrelip/syncfile.svg?style=svg)](https://circleci.com/gh/andrelip/syncfile)
 [![Coverage Status](https://coveralls.io/repos/github/andrelip/syncfile/badge.svg?branch=master)](https://coveralls.io/github/andrelip/syncfile?branch=master)
 
 To start your Phoenix server:
