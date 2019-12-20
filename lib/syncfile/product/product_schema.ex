@@ -1,4 +1,6 @@
 defmodule Syncfile.ProductSchema do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
 

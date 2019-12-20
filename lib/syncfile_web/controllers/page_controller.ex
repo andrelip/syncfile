@@ -33,6 +33,7 @@ defmodule SyncfileWeb.PageController do
   def update(conn, _) do
     conn
     |> put_flash(:error, "No file selected")
+    |> put_status(:unprocessable_entity)
     |> render("new.html")
   end
 end

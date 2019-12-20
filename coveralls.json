@@ -1,0 +1,16 @@
+{
+  "skip_files": [
+    "test/support",
+    "lib/syncfile_web/views/*",
+    "lib/syncfile/application.ex",
+    "lib/syncfile_web.ex",
+    "lib/syncfile_web/router.ex",
+    "lib/syncfile_web/gettext.ex",
+    "lib/syncfile/release.ex",
+    "deps/nimble_csv/lib/nimble_csv.ex"
+  ],
+  "coverage_options": {
+    "treat_no_relevant_lines_as_covered": true,
+    "minimum_coverage": 90
+  }
+}
