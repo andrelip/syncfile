@@ -6,7 +6,7 @@ defmodule SyncfileWeb.PageControllerTest do
   alias Syncfile.Repo
 
   setup do
-    products_data = Product.load_csv("/Users/andresouza/syncfile/test/fixtures/data.csv")
+    products_data = Product.load_csv("test/fixtures/data.csv")
     Product.sync(products_data)
   end
 
